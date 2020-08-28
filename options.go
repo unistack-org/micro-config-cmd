@@ -3,6 +3,7 @@ package cmd
 import (
 	"context"
 
+	"github.com/micro/cli/v2"
 	"github.com/unistack-org/micro/v3/auth"
 	"github.com/unistack-org/micro/v3/broker"
 	"github.com/unistack-org/micro/v3/client"
@@ -37,6 +38,13 @@ type Options struct {
 	// Other options for implementations of the interface
 	// can be stored in a context
 	Context context.Context
+	// Action to execute when Run is called and there is no subcommand
+	// TODO replace with a build in context
+	Action func(*cli.Context) error
+	// TODO replace with built in command definition
+	Commands []*cli.Command
+	// TODO replace with built in flags definition
+	Flags []cli.Flag
 }
 
 // Command line Name

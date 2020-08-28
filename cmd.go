@@ -3,6 +3,7 @@ package cmd
 
 import (
 	"math/rand"
+	"os"
 	"time"
 
 	"github.com/micro/cli/v2"
@@ -16,6 +17,11 @@ type Cmd interface {
 	Init(opts ...Option) error
 	// Options set within this command
 	Options() Options
+	// Run executes the command
+	Run() error
+	// Implementation
+	String() string
+	Before(ctx *cli.Context) error
 }
 
 type cmd struct {
@@ -75,6 +81,14 @@ func (c *cmd) Options() Options {
 
 func (c *cmd) Before(ctx *cli.Context) error {
 	return nil
+}
+
+func (c *cmd) Run() error {
+	return c.app.Run(os.Args)
+}
+
+func (c *cmd) String() string {
+	return "cmd"
 }
 
 func (c *cmd) Init(opts ...Option) error {
