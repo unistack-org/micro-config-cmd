@@ -9,11 +9,11 @@ import (
 	"github.com/unistack-org/micro/v3/client"
 	"github.com/unistack-org/micro/v3/config"
 	"github.com/unistack-org/micro/v3/debug/profile"
-	"github.com/unistack-org/micro/v3/debug/trace"
 	"github.com/unistack-org/micro/v3/registry"
 	"github.com/unistack-org/micro/v3/runtime"
 	"github.com/unistack-org/micro/v3/server"
 	"github.com/unistack-org/micro/v3/store"
+	"github.com/unistack-org/micro/v3/tracer"
 	"github.com/unistack-org/micro/v3/transport"
 )
 
@@ -32,7 +32,7 @@ type Options struct {
 	Server    *server.Server
 	Runtime   *runtime.Runtime
 	Store     *store.Store
-	Tracer    *trace.Tracer
+	Tracer    *tracer.Tracer
 	Auth      *auth.Auth
 	Profile   *profile.Profile
 	// Other options for implementations of the interface
@@ -116,7 +116,7 @@ func Store(s *store.Store) Option {
 	}
 }
 
-func Tracer(t *trace.Tracer) Option {
+func Tracer(t *tracer.Tracer) Option {
 	return func(o *Options) {
 		o.Tracer = t
 	}
