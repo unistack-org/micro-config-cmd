@@ -9,12 +9,12 @@ import (
 	"github.com/unistack-org/micro/v3/client"
 	"github.com/unistack-org/micro/v3/config"
 	"github.com/unistack-org/micro/v3/debug/profile"
+	"github.com/unistack-org/micro/v3/network/transport"
 	"github.com/unistack-org/micro/v3/registry"
 	"github.com/unistack-org/micro/v3/runtime"
 	"github.com/unistack-org/micro/v3/server"
 	"github.com/unistack-org/micro/v3/store"
 	"github.com/unistack-org/micro/v3/tracer"
-	"github.com/unistack-org/micro/v3/transport"
 )
 
 type Options struct {
