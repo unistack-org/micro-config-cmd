@@ -49,7 +49,7 @@ func newCmd(opts ...Option) Cmd {
 	}
 
 	if len(options.Description) == 0 {
-		options.Description = "a go-micro service"
+		options.Description = "a micro service"
 	}
 
 	cmd := new(cmd)
