@@ -103,20 +103,7 @@ func (c *cmd) Init(opts ...Option) error {
 	}
 	c.app.HideVersion = len(c.opts.Version) == 0
 	c.app.Usage = c.opts.Description
-	c.app.RunAndExitOnError()
-	return nil
-}
-
-func DefaultOptions() Options {
-	return DefaultCmd.Options()
-}
-
-func App() *cli.App {
-	return DefaultCmd.App()
-}
-
-func Init(opts ...Option) error {
-	return DefaultCmd.Init(opts...)
+	return c.app.Run(os.Args)
 }
 
 func NewCmd(opts ...Option) Cmd {
